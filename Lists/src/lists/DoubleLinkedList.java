@@ -108,6 +108,32 @@ public class DoubleLinkedList<T extends Number & Comparable> implements Ilist<T>
             tail = tail.getPreviousNode();
         }
     }
+    
+    public boolean EliminarDuplicados(){
+        if (isEmpty()){
+            System.out.println("La lista está vacía");
+        }else{
+            DoubleNode<T> current = head;
+            while(current != null){
+                DoubleNode<T> next = current.getNextNode();
+                while(next != null){
+                    if(current.getData() == next.getData()){
+                        if(next == tail){
+                            tail = tail.getPreviousNode();
+                            tail.setNextNode(null);   
+                        }else{
+                           next.getPreviousNode().setNextNode(next.getNextNode());
+                           next.getNextNode().setPreviousNode(next.getPreviousNode());
+                        }
+                    }
+                    next = next.getNextNode();
+                }
+                current = current.getNextNode();
+            }
+        }
+
+        return false;
+    }
 
     @Override
     public String showData(){
@@ -126,7 +152,7 @@ public class DoubleLinkedList<T extends Number & Comparable> implements Ilist<T>
      *
      * @return the size
      */
-    public int getSize(){
-        return size;
+    public int getSize()
+{        return size;
     }
 }

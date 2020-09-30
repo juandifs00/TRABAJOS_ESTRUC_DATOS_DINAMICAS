@@ -12,7 +12,7 @@ public class Lists{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         SingleLinkedList<Integer> miListaS = new SingleLinkedList<>();
         miListaS.addLast(10);
         miListaS.addLast(20);
@@ -76,6 +76,8 @@ public class Lists{
         miListaCD.addOrdered(15);
         miListaCD.addOrdered(9);
         System.out.println("Datos de la lista circular doble de manera ordenada: " + miListaCD.showData());
+        miListaCD.RotacionIzquierda(1);
+        System.err.println("Lista circular doble despues de rotar a la izquierda: " + miListaCD.showData());
         miListaCD.delete();
         miListaCD.deleteLast();
         System.out.println("Datos de la lista circular doble después de borrar el primer y último dato: " 
@@ -83,5 +85,20 @@ public class Lists{
         
         System.out.println("Datos de la lista circular doble de manera descendente: " + miListaCD.showDataDesc());
         System.out.println("");
+        
+        DoubleLinkedList<Integer> miListaEx = new DoubleLinkedList<>();
+        miListaEx.add(11);
+        miListaEx.addLast(22);
+        miListaEx.add(33);
+        miListaEx.addLast(22);
+        miListaEx.add(88);
+        miListaEx.addLast(11);
+        miListaEx.add(44);
+        miListaEx.addLast(99);
+        miListaEx.add(88);
+        System.out.println("Datos de la lista enlazada doble: " + miListaEx.showData());
+        miListaEx.EliminarDuplicados();
+        System.err.println("Datos de la lista enlazada doble despues de eliminar los datos duplicados: " 
+                + miListaEx.showData());
     }
 }

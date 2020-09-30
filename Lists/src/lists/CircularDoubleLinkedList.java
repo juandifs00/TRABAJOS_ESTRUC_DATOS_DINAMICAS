@@ -106,6 +106,12 @@ public class CircularDoubleLinkedList<T extends Number & Comparable> implements 
         }
         //Eliminar el último dato.
     }
+    
+    public void RotacionIzquierda(int rota){
+        for (int i = 0; i < rota; i++){
+            head = head.getNextNode();
+        }
+    }
 /**
  * Mostrar los datos de forma descendente.
  * @return LIsta de datos en orden descendente
